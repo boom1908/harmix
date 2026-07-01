@@ -34,7 +34,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               <div className="grid h-7 w-7 place-items-center rounded-md bg-primary text-primary-foreground">
                 <Music2 className="h-4 w-4" />
               </div>
-              Loop
+              Harmix
             </Link>
             <nav className="flex items-center gap-1">
               {nav.map((item) => (
@@ -54,7 +54,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div className="grid h-6 w-6 place-items-center rounded-md bg-primary text-primary-foreground">
             <Music2 className="h-3.5 w-3.5" />
           </div>
-          Loop
+          Harmix
         </Link>
         <Button variant="ghost" size="icon" onClick={signOut}>
           <LogOut className="h-4 w-4" />

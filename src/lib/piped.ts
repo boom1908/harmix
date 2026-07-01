@@ -3,10 +3,10 @@
 // Instances can rot; list is ordered by reliability and rotated on failure.
 
 const INSTANCES = [
-  "https://pipedapi.kavin.rocks",
-  "https://pipedapi.adminforge.de",
-  "https://pipedapi.reallyaweso.me",
-  "https://pipedapi.leptons.xyz",
+  "https://api.piped.private.coffee",
+  "https://pipedapi.orangenet.cc",
+  "https://pipedapi.drgns.space",
+  "https://pipedapi.ducks.party",
 ];
 
 export type Track = {

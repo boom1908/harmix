@@ -66,7 +66,7 @@ function AuthPage() {
             <Music2 className="h-7 w-7" />
           </div>
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight">Loop</h1>
+            <h1 className="text-2xl font-semibold tracking-tight">Harmix</h1>
             <p className="mt-1 text-sm text-muted-foreground">
               A private music player for you and your friends.
             </p>

@@ -13,7 +13,7 @@ const schema = z.object({ q: z.string().optional().default("") });
 export const Route = createFileRoute("/_authenticated/search")({
   head: () => ({
     meta: [
-      { title: "Search — Loop" },
+      { title: "Search — Harmix" },
       { name: "description", content: "Search songs, artists, and albums." },
     ],
   }),

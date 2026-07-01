@@ -10,8 +10,8 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in — Loop" },
-      { name: "description", content: "Sign in to Loop, your private music player." },
+      { title: "Sign in — Harmix" },
+      { name: "description", content: "Sign in to Harmix, your private music player." },
     ],
   }),
   component: AuthPage,

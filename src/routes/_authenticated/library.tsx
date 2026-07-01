@@ -14,7 +14,7 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/_authenticated/library")({
   head: () => ({
     meta: [
-      { title: "Library — Loop" },
+      { title: "Library — Harmix" },
       { name: "description", content: "Your playlists." },
     ],
   }),

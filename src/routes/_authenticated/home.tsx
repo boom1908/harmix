@@ -9,7 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/_authenticated/home")({
   head: () => ({
     meta: [
-      { title: "Home — Loop" },
+      { title: "Home — Harmix" },
       { name: "description", content: "Your music, your queue." },
     ],
   }),

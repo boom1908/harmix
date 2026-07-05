@@ -28,8 +28,18 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Build web
-        run: npm run build
+      - name: Build web (mobile SPA → dist/)
+        run: npm run build:mobile
+
+      - name: Verify dist/index.html exists
+        run: |
+          if [ ! -f "dist/index.html" ]; then
+            echo "::error::dist/index.html missing — mobile build did not produce a static SPA"
+            ls -la dist || true
+            exit 1
+          fi
+          echo "dist/ contents:"
+          ls -la dist
 
       - name: Add Android platform
         run: |

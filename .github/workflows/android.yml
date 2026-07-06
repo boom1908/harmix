@@ -28,6 +28,9 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
+      - name: Patch Android WebView text input bridge
+        run: npm run patch:capacitor-android-input
+
       - name: Build web (mobile SPA → dist/)
         env:
           VITE_SUPABASE_URL: https://c--e41703b9-fbbf-41b1-bca6-ff39488d8f25-prod.lovable.cloud

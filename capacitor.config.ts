@@ -7,6 +7,12 @@ const config: CapacitorConfig = {
   android: {
     allowMixedContent: true,
   },
+  plugins: {
+    Keyboard: {
+      resize: 'body' as any,
+      resizeOnFullScreen: true,
+    },
+  },
 };
 
 export default config;

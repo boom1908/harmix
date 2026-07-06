@@ -6,6 +6,8 @@ const config: CapacitorConfig = {
   webDir: 'dist',
   android: {
     allowMixedContent: true,
+    captureInput: false,
+    initialFocus: false,
   },
   plugins: {
     Keyboard: {

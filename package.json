@@ -9,8 +9,6 @@
     "build:dev": "vite build --mode development",
     "build:mobile": "vite build --config vite.config.mobile.ts",
     "preview": "vite preview",
-    "patch:capacitor-android-input": "node scripts/patch-capacitor-android-input.mjs",
-    "postinstall": "node scripts/patch-capacitor-android-input.mjs",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
@@ -18,7 +16,6 @@
     "@capacitor/android": "^8.4.1",
     "@capacitor/cli": "^8.4.1",
     "@capacitor/core": "^8.4.1",
-    "@capacitor/keyboard": "^8",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-alert-dialog": "^1.1.15",

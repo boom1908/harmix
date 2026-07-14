@@ -117,6 +117,24 @@ export function PlayerBar() {
     } catch {}
   }, [volume, muted, ready]);
 
+  // Foreground-only playback for now. Real background playback should be added
+  // later with a proper native background-audio implementation, not by relying
+  // on a frozen WebView continuing to play.
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const pauseWhenBackgrounded = () => {
+      if (!document.hidden) return;
+      setPlaying(false);
+      try { playerRef.current?.pauseVideo?.(); } catch {}
+    };
+    document.addEventListener("visibilitychange", pauseWhenBackgrounded);
+    window.addEventListener("pagehide", pauseWhenBackgrounded);
+    return () => {
+      document.removeEventListener("visibilitychange", pauseWhenBackgrounded);
+      window.removeEventListener("pagehide", pauseWhenBackgrounded);
+    };
+  }, [setPlaying]);
+
   // Poll current time
   useEffect(() => {
     if (!ready) return;

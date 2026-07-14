@@ -28,9 +28,6 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Patch Android WebView text input bridge
-        run: npm run patch:capacitor-android-input
-
       - name: Build web (mobile SPA → dist/)
         env:
           VITE_SUPABASE_URL: https://c--e41703b9-fbbf-41b1-bca6-ff39488d8f25-prod.lovable.cloud
@@ -54,11 +51,13 @@ jobs:
             npx cap add android
           fi
 
-      - name: Ensure keyboard resize mode in AndroidManifest
+      - name: Ensure stable Android keyboard mode
         run: |
           MANIFEST=android/app/src/main/AndroidManifest.xml
-          if ! grep -q 'android:windowSoftInputMode' "$MANIFEST"; then
-            sed -i 's|<activity |<activity android:windowSoftInputMode="adjustResize" |' "$MANIFEST"
+          if grep -q 'android:windowSoftInputMode=' "$MANIFEST"; then
+            sed -i 's|android:windowSoftInputMode="[^"]*"|android:windowSoftInputMode="adjustPan"|' "$MANIFEST"
+          else
+            sed -i 's|<activity |<activity android:windowSoftInputMode="adjustPan" |' "$MANIFEST"
           fi
           grep -n 'windowSoftInputMode' "$MANIFEST" || true
 

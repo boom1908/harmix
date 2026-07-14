@@ -1,11 +1,8 @@
-import { Link, useRouter } from "@tanstack/react-router";
-import { Home, Library, Search, LogOut, Music2 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { Home, Library, Search, Music2 } from "lucide-react";
 import { type ReactNode } from "react";
 import { PlayerBar } from "./player-bar";
 import { cn } from "@/lib/utils";
-import { supabase } from "@/integrations/supabase/client";
-import { useQueryClient } from "@tanstack/react-query";
-import { Button } from "./ui/button";
 
 const nav = [
   { to: "/", label: "Home", icon: Home },
@@ -14,16 +11,6 @@ const nav = [
 ] as const;
 
 export function AppShell({ children }: { children: ReactNode }) {
-  const router = useRouter();
-  const queryClient = useQueryClient();
-
-  const signOut = async () => {
-    await queryClient.cancelQueries();
-    queryClient.clear();
-    await supabase.auth.signOut();
-    router.navigate({ to: "/auth", replace: true });
-  };
-
   return (
     <div className="flex min-h-screen flex-col pb-24 sm:pb-28">
       {/* Top bar (desktop) */}
@@ -42,9 +29,6 @@ export function AppShell({ children }: { children: ReactNode }) {
               ))}
             </nav>
           </div>
-          <Button variant="ghost" size="sm" onClick={signOut}>
-            <LogOut className="mr-2 h-4 w-4" /> Sign out
-          </Button>
         </div>
       </header>
 
@@ -56,10 +40,8 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
           Harmix
         </Link>
-        <Button variant="ghost" size="icon" onClick={signOut}>
-          <LogOut className="h-4 w-4" />
-        </Button>
       </header>
+
 
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-6">{children}</main>
 

@@ -1,11 +1,8 @@
-import { Link, useRouter } from "@tanstack/react-router";
-import { Home, Library, Search, LogOut, Music2 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { Home, Library, Search, Music2 } from "lucide-react";
 import { type ReactNode } from "react";
 import { PlayerBar } from "./player-bar";
 import { cn } from "@/lib/utils";
-import { supabase } from "@/integrations/supabase/client";
-import { useQueryClient } from "@tanstack/react-query";
-import { Button } from "./ui/button";
 
 const nav = [
   { to: "/", label: "Home", icon: Home },

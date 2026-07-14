@@ -89,8 +89,6 @@
 
 @utility glass {
   background: color-mix(in oklch, var(--surface-elevated) 80%, transparent);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
 }
 
 @utility scrollbar-thin {

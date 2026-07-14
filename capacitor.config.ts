@@ -9,12 +9,6 @@ const config: CapacitorConfig = {
     captureInput: false,
     initialFocus: false,
   },
-  plugins: {
-    Keyboard: {
-      resize: 'body' as any,
-      resizeOnFullScreen: true,
-    },
-  },
 };
 
 export default config;
